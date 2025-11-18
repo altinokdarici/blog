@@ -8,12 +8,12 @@ type Props = {
 const { entry } = Astro.props;
 ---
 
-<a href={`/${entry.slug}`} class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+<a href={`/${entry.slug}`} class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-stone-300 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-600 bg-white dark:bg-stone-950 hover:bg-stone-100 dark:hover:bg-stone-900 hover:text-black dark:hover:text-white shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
   <div class="flex flex-col flex-1 truncate">
-    <div class="font-semibold">
+    <div class="font-semibold text-black dark:text-white">
       {entry.data.title}
     </div>
-    <div class="text-sm">
+    <div class="text-sm text-stone-700 dark:text-stone-300">
       {entry.data.description}
     </div>
   </div>
