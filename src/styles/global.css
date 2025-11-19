@@ -19,7 +19,6 @@ body {
 body {
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-stone-100 dark:bg-stone-900;
   @apply text-stone-900 dark:text-stone-100;
 }
 
