@@ -4,8 +4,6 @@ description: "Learn why static classes can be problematic in TypeScript and disc
 date: 2025-12-18
 ---
 
-# Stop Writing Static Classes in TypeScript
-
 *Everything in this post applies equally to JavaScript and TypeScript. The module system works the same way in both. I'm using TypeScript for the examples because that's what most Node.js backends use today.*
 
 After eight years of writing TypeScript backends, I've seen this pattern hundreds of times. A developer with Java or C# experience joins the team, and within a week, we have files like this:
