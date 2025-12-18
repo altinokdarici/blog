@@ -1,7 +1,7 @@
 ---
 title: "Stop Writing Static Classes in TypeScript"
+description: "Learn why static classes can be problematic in TypeScript and discover better alternatives for writing cleaner, more maintainable code."
 date: 2025-12-18
-author: altinokdarici
 ---
 
 # Stop Writing Static Classes in TypeScript
@@ -26,4 +26,4 @@ Here are some alternatives to consider:
 
 ## Conclusion
 
-Avoiding static classes in TypeScript can lead to cleaner, easier-to-maintain code. By leveraging alternative designs, you’ll write code that is not only more functional but also better aligned with TypeScript’s features.
+Avoiding static classes in TypeScript can lead to cleaner, easier-to-maintain code. By leveraging alternative designs, you'll write code that is not only more functional but also better aligned with TypeScript's features.
