@@ -18,7 +18,7 @@ export class OrderManager {
   private userId: string | null = null;
   private userTier: string | null = null;
 
-  public setContext(userId: string, userTier: string): void {
+  public setUser(userId: string, userTier: string): void {
     this.userId = userId;
     this.userTier = userTier;
   }
@@ -51,13 +51,13 @@ const fastify = Fastify({ logger: true });
 const orderManager = new OrderManager();
 
 fastify.get('/orders', async (request, reply) => {
-  orderManager.setContext(request.user.id, request.user.tier);
+  orderManager.setUser(request.user.id, request.user.tier);
   const orders = await orderManager.getOrders();
   return orders;
 });
 
 fastify.post('/orders', async (request, reply) => {
-  orderManager.setContext(request.user.id, request.user.tier);
+  orderManager.setUser(request.user.id, request.user.tier);
   const order = await orderManager.createOrder(request.body.items);
   return order;
 });
@@ -85,17 +85,17 @@ Timeline:
 ─────────────────────────────────────────────────────────────────────►
 
 Request A (User 123, gold tier):
-  │ setContext(123, 'gold')
+  │ setUser(123, 'gold')
   │ await db.orders.findMany(...)  ← yields to event loop
   │                                                    │ returns orders for... User 456?
 
 Request B (User 456, bronze tier):
-            │ setContext(456, 'bronze')  ← overwrites shared instance state
+            │ setUser(456, 'bronze')  ← overwrites shared instance state
             │ await db.orders.create(...)
             │                            │ returns
 ```
 
-Request A calls `setContext` with User 123, then hits an `await`. While the database query is in flight, Request B arrives and calls `setContext` with User 456. The shared instance now holds User 456's context.
+Request A calls `setUser` with User 123, then hits an `await`. While the database query is in flight, Request B arrives and calls `setUser` with User 456. The shared instance now holds User 456's context.
 
 When Request A's database query completes and the code continues, `this.userId` is `456`, not `123`. If there's any subsequent operation in Request A that reads from the shared instance, it uses the wrong user's data.
 
@@ -126,7 +126,7 @@ Yes, Node.js has `AsyncLocalStorage` which provides similar isolation for async 
 
 The solution is straightforward: don't store request-scoped state in shared instances. But let's go further—**classes themselves increase the risk of this bug**.
 
-When you write a class, you create a container for state. Instance properties are an invitation to store something. Setters like `setContext()` or `setUser()` feel natural in a class. The object-oriented instinct is to encapsulate data alongside behavior.
+When you write a class, you create a container for state. Instance properties are an invitation to store something. Setters like `setUser()` or `setUser()` feel natural in a class. The object-oriented instinct is to encapsulate data alongside behavior.
 
 In Node.js, that instinct will burn you.
 
