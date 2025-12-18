@@ -111,7 +111,7 @@ public class OrderManager
 {
     private static readonly ThreadLocal<string> _currentUserId = new();
 
-    public void SetContext(string userId)
+    public void SetUser(string userId)
     {
         _currentUserId.Value = userId;  // Thread-isolated
     }
