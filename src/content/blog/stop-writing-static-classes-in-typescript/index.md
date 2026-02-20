@@ -28,6 +28,7 @@ export class RateCalculator {
   }
 }
 ```
+*In JS/TypeScript, “static class” is not an actual language feature. It’s a term people use to describe a normal class that happens to only contain static members and is never instantiated.*
 
 And the call site looks like this:
 
