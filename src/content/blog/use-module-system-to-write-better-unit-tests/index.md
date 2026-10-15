@@ -1,7 +1,7 @@
 ---
 title: "Use the Module System to Write Better Unit Tests"
 description: "JavaScript's module system provides dependency injection for free. Learn how to write simpler, more testable code without IoC containers or constructor injection."
-date: 2025-12-18
+date: "2025-12-18"
 tags: ["testing", "typescript", "javascript"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "The Mental Shift: Java and C# to TypeScript"
 description: "The syntax may look familiar, but idiomatic TypeScript is fundamentally different from Java and C#. Here's the mental shift required to write TypeScript that fits the language."
-date: 2025-12-18
+date: "2025-12-18"
 tags: ["typescript", "architecture"]
 ---
 

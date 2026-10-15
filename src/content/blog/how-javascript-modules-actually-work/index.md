@@ -1,7 +1,7 @@
 ---
 title: "How JavaScript Modules Actually Work"
 description: "Understanding how JavaScript's module cache works will change how you think about dependency management—and why IoC containers are often unnecessary."
-date: 2025-12-18
+date: "2025-12-18"
 tags: ["javascript", "typescript", "node"]
 ---
 

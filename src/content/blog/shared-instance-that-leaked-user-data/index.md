@@ -1,7 +1,7 @@
 ---
 title: "The Shared Instance That Leaked User Data"
 description: "A subtle Node.js bug where module-scoped instances holding request-scoped state can leak data between users due to the single-threaded event loop."
-date: 2025-12-18
+date: "2025-12-18"
 tags: ["node", "typescript", "architecture"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Stop Writing Static Classes in TypeScript"
 description: "Learn why static classes can be problematic in TypeScript and discover better alternatives for writing cleaner, more maintainable code."
-date: 2025-12-18
+date: "2025-12-18"
 tags: ["typescript", "javascript"]
 ---
 

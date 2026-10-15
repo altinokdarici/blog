@@ -1,7 +1,6 @@
 export type Site = {
   NAME: string;
   AUTHOR: string;
-  EMAIL: string;
 };
 
 export type Metadata = {
