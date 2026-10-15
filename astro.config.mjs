@@ -7,6 +7,12 @@ export default defineConfig({
   site: "https://altinok.dev",
   compressHTML: true,
   integrations: [mdx(), sitemap()],
+  markdown: {
+    shikiConfig: {
+      themes: { light: "github-light", dark: "github-dark" },
+      defaultColor: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

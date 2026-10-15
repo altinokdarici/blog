@@ -2,6 +2,7 @@
 title: "Why the Most Effective Engineering Systems Come From Product Teams"
 description: "How proximity to the delivery loop determines the effectiveness of engineering systems and platform infrastructure."
 date: "2025-03-22"
+tags: ["engineering-practices", "architecture"]
 ---
 
 In large organizations, engineering systems refer to the tooling and infrastructure that make software delivery possible. This includes build systems, CI pipelines, deployment workflows, test automation, templates, and the internal platforms that support them. These systems are often owned by platform teams whose job is to provide a stable and scalable foundation for all products.

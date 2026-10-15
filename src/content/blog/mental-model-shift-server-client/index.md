@@ -2,6 +2,7 @@
 title: "The Mental Model Shift: From Server to Client and Back Again"
 description: "How the web industry evolved from server-side templates to SPAs to hybrid architectures, and why each transition required developers to think differently."
 date: "2025-04-19"
+tags: ["architecture", "react", "javascript"]
 ---
 
 If you learned web development in the early 2000s, you thought in pages. A user clicked a link. The browser sent a request. The server ran some code, merged data with a template, and sent back HTML. Every interaction was a full page reload.

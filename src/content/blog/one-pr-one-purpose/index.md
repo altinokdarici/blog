@@ -2,6 +2,7 @@
 title: "One PR. One Purpose."
 description: "Mixing unrelated changes in a single PR is careless. It makes reviews harder, hides bugs, slows teams down, and turns reverts into nightmares."
 date: "2025-12-12"
+tags: ["engineering-practices"]
 ---
 
 A PR should do exactly one thing.

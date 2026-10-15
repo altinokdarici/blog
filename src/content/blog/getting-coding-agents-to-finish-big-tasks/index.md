@@ -2,6 +2,7 @@
 title: "Getting Coding Agents to Actually Finish Big Tasks"
 description: "How I built work-graph, a plugin for Copilot CLI and Claude Code that splits big agent tasks into a graph of steps and lets code decide when each one is done."
 date: "2026-10-15"
+tags: ["agents", "tooling"]
 ---
 
 ![A work-graph run partway through: a loader step feeds 60 migration steps, a lint audit adds fix steps, and both lead to enable-rules and then the goal.](./graph.svg)

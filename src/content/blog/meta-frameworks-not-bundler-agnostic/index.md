@@ -2,6 +2,7 @@
 title: "JS Meta Frameworks Are Not Bundler Agnostic"
 description: "I thought frameworks sat above the bundler, but reading the plugin code changed my view."
 date: "2025-11-07"
+tags: ["javascript", "tooling"]
 ---
 
 I used to think JavaScript meta frameworks sat cleanly above the bundler. The framework should define routing, data loading, server boundaries. The bundler should handle graph traversal, transforms, and the dev server. In my head these were two separate layers.

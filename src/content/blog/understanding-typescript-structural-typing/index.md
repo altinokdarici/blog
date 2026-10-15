@@ -2,6 +2,7 @@
 title: "If It Looks Like a Duck: Understanding TypeScript's Structural Typing"
 description: "TypeScript uses structural typing—if it has the right shape, it works. Here's how this differs from Java and C#'s nominal typing and why it matters."
 date: 2025-12-18
+tags: ["typescript"]
 ---
 
 You've probably heard the phrase: "If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck."

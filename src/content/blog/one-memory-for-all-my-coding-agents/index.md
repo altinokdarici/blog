@@ -2,6 +2,7 @@
 title: "One Memory for All My Coding Agents"
 description: "Why I gave Claude Code, Copilot CLI, and my sandboxes one shared memory server, how it works, and what went wrong along the way."
 date: "2026-10-15"
+tags: ["agents", "tooling"]
 ---
 
 Every coding agent I use starts each session with no memory. It doesn't know I prefer small commits, that one repo needs Node 24, or that I already tried an approach yesterday and threw it away. I explain it again, the agent does good work, and the next session starts from zero.

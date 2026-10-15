@@ -1,0 +1,19 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+---
+
+<PageLayout title="Page not found" description="The page you are looking for does not exist.">
+  <Container>
+    <div class="space-y-4">
+      <h1 class="animate text-2xl font-semibold text-black dark:text-white">Page not found</h1>
+      <p class="animate">
+        The page you are looking for does not exist or has moved.
+      </p>
+      <div class="animate">
+        <Link href="/">Go back home</Link>
+      </div>
+    </div>
+  </Container>
+</PageLayout>

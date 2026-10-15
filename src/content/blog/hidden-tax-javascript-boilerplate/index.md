@@ -2,6 +2,7 @@
 title: "The Hidden Tax of JavaScript Boilerplate"
 description: "How tooling fragmentation slows teams down and why unified toolchains with solid defaults matter."
 date: "2025-04-12"
+tags: ["javascript", "tooling"]
 ---
 
 Creating a new JavaScript project still feels like assembling a small toolchain by hand. You pick a linter, a formatter, a bundler, a test runner, a TypeScript setup, a package manager, and a Node version. Every choice adds another config file to maintain.

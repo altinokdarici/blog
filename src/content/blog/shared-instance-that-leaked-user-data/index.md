@@ -2,6 +2,7 @@
 title: "The Shared Instance That Leaked User Data"
 description: "A subtle Node.js bug where module-scoped instances holding request-scoped state can leak data between users due to the single-threaded event loop."
 date: 2025-12-18
+tags: ["node", "typescript", "architecture"]
 ---
 
 *Everything in this post applies equally to JavaScript and TypeScript. I'm using TypeScript for the examples because that's what most Node.js backends use today. The examples use Fastify, but the same problem exists in Express, Koa, Hapi, and any other Node.js framework—they all run on the same single-threaded event loop.*

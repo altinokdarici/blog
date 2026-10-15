@@ -2,6 +2,7 @@
 title: "Trunk Based Development and the Cost of Integration"
 description: "How branching strategies shape delivery performance through integration cost and coordination overhead."
 date: "2025-03-15"
+tags: ["engineering-practices"]
 ---
 
 Over the years I have seen many teams adopt GitFlow because it provides a clear separation between work in progress and code that is ready for production. It made sense in a world of slow CI pipelines, infrequent releases, and long stabilization periods. As software delivery practices evolved, the trade offs of this model changed significantly.

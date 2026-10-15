@@ -1,23 +1,33 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import { type CollectionEntry, render } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import FormattedDate from "@components/FormattedDate.astro";
+import Link from "@components/Link.astro";
 import { readingTime } from "@lib/utils";
+import { getPublishedPosts } from "@lib/posts";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("blog"))
-    .filter(post => !post.data.draft)
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-  return posts.map((post) => ({
+  const posts = await getPublishedPosts();
+  return posts.map((post, index) => ({
     params: { slug: post.id },
-    props: post,
+    props: {
+      post,
+      newer: posts[index - 1],
+      older: posts[index + 1],
+    },
   }));
 }
-type Props = CollectionEntry<"blog">;
 
-const post = Astro.props;
-const { Content } = await render(post);
+type Props = {
+  post: CollectionEntry<"blog">;
+  newer?: CollectionEntry<"blog">;
+  older?: CollectionEntry<"blog">;
+};
+
+const { post, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
 ---
 
 <PageLayout
@@ -40,9 +50,82 @@ const { Content } = await render(post);
       <div class="animate text-2xl font-semibold text-black dark:text-white">
         {post.data.title}
       </div>
+      {post.data.tags.length > 0 && (
+        <ul class="animate flex flex-wrap gap-x-3 gap-y-1 pt-1 text-sm">
+          {post.data.tags.map((tag) => (
+            <li>
+              <Link href={`/tags/${tag}`}>#{tag}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
-    <article class="animate">
+    {tocHeadings.length >= 3 && (
+      <details class="animate toc mt-8 rounded-lg border border-stone-300 dark:border-stone-700 px-4 py-3 text-sm">
+        <summary class="cursor-pointer font-semibold text-black dark:text-white">
+          Table of contents
+        </summary>
+        <ol class="mt-3 space-y-1.5">
+          {tocHeadings.map((heading) => (
+            <li class={heading.depth === 3 ? "pl-4" : ""}>
+              <Link href={`#${heading.slug}`} underline={false}>{heading.text}</Link>
+            </li>
+          ))}
+        </ol>
+      </details>
+    )}
+    <article class="animate mt-8">
       <Content />
     </article>
+    {(older || newer) && (
+      <nav aria-label="More posts" class="animate mt-16 grid gap-4 border-t border-stone-200 dark:border-stone-800 pt-8 sm:grid-cols-2">
+        {older ? (
+          <a href={`/${older.id}`} class="group flex flex-col gap-1 rounded-lg border border-stone-300 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-600 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 ease-in-out">
+            <span class="text-sm text-stone-600 dark:text-stone-400">&larr; Previous</span>
+            <span class="font-semibold text-black dark:text-white">{older.data.title}</span>
+          </a>
+        ) : <div class="hidden sm:block" />}
+        {newer && (
+          <a href={`/${newer.id}`} class="group flex flex-col gap-1 rounded-lg border border-stone-300 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-600 px-4 py-3 text-right hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-300 ease-in-out">
+            <span class="text-sm text-stone-600 dark:text-stone-400">Next &rarr;</span>
+            <span class="font-semibold text-black dark:text-white">{newer.data.title}</span>
+          </a>
+        )}
+      </nav>
+    )}
   </Container>
 </PageLayout>
+
+<script>
+  const copyLabel = "Copy";
+
+  function addCopyButtons() {
+    document.querySelectorAll<HTMLPreElement>("article pre").forEach((pre) => {
+      if (pre.parentElement?.classList.contains("code-block")) return;
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-block";
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "copy-button";
+      button.textContent = copyLabel;
+      button.setAttribute("aria-label", "Copy code to clipboard");
+      button.addEventListener("click", async () => {
+        const code = pre.querySelector("code")?.innerText ?? pre.innerText;
+        try {
+          await navigator.clipboard.writeText(code);
+          button.textContent = "Copied";
+        } catch {
+          button.textContent = "Failed";
+        }
+        setTimeout(() => (button.textContent = copyLabel), 2000);
+      });
+      wrapper.appendChild(button);
+    });
+  }
+
+  document.addEventListener("astro:page-load", addCopyButtons);
+</script>
