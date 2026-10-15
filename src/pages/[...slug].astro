@@ -20,7 +20,12 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<PageLayout title={post.data.title} description={post.data.description}>
+<PageLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={`/og/${post.id}.png`}
+  article={{ headline: post.data.title, publishedTime: post.data.date }}
+>
   <Container>
     <div class="space-y-1">
       <div class="animate flex items-center gap-1.5">
