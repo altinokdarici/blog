@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 240" role="img" aria-label="Life of a step: ready, subagent, report, check, guard, complete; failures retry or go to the user">
+<style>
+.b{fill:#f6f8fa;stroke:#8c959f}.hl{fill:#ddf4ff;stroke:#0969da}.ok{fill:#dafbe1;stroke:#1a7f37}.wa{fill:#fff8c5;stroke:#9a6700}
+.t{font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#1f2328}.s{font:11.5px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#59636e}
+.l{stroke:#59636e;stroke-width:1.5;fill:none}.ah{fill:#59636e}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .b{fill:#161b22;stroke:#656c76}:root:not([data-theme=light]) .hl{fill:#0d2340;stroke:#4493f8}:root:not([data-theme=light]) .ok{fill:#0f2a18;stroke:#3fb950}:root:not([data-theme=light]) .wa{fill:#2e2309;stroke:#d29922}:root:not([data-theme=light]) .t{fill:#e6edf3}:root:not([data-theme=light]) .s{fill:#9198a1}:root:not([data-theme=light]) .l{stroke:#9198a1}:root:not([data-theme=light]) .ah{fill:#9198a1}}
+html[data-theme=dark] .b{fill:#161b22;stroke:#656c76}html[data-theme=dark] .hl{fill:#0d2340;stroke:#4493f8}html[data-theme=dark] .ok{fill:#0f2a18;stroke:#3fb950}html[data-theme=dark] .wa{fill:#2e2309;stroke:#d29922}html[data-theme=dark] .t{fill:#e6edf3}html[data-theme=dark] .s{fill:#9198a1}html[data-theme=dark] .l{stroke:#9198a1}html[data-theme=dark] .ah{fill:#9198a1}
+</style>
+<defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0L10,5L0,10z"/></marker></defs>
+<rect class="b" x="10" y="50" width="100" height="44" rx="8"/><text class="t" x="60" y="77" text-anchor="middle">ready</text>
+<rect class="b" x="140" y="50" width="100" height="44" rx="8"/><text class="t" x="190" y="77" text-anchor="middle">subagent</text>
+<rect class="b" x="270" y="50" width="100" height="44" rx="8"/><text class="t" x="320" y="77" text-anchor="middle">report</text>
+<rect class="hl" x="400" y="50" width="100" height="44" rx="8"/><text class="t" x="450" y="77" text-anchor="middle">check</text>
+<rect class="hl" x="530" y="50" width="100" height="44" rx="8"/><text class="t" x="580" y="77" text-anchor="middle">guard</text>
+<rect class="ok" x="660" y="50" width="100" height="44" rx="8"/><text class="t" x="710" y="77" text-anchor="middle">complete</text>
+<path class="l" d="M110,72H138" marker-end="url(#a2)"/><path class="l" d="M240,72H268" marker-end="url(#a2)"/>
+<path class="l" d="M370,72H398" marker-end="url(#a2)"/><text class="s" x="384" y="108" text-anchor="middle">done</text>
+<path class="l" d="M500,72H528" marker-end="url(#a2)"/><text class="s" x="514" y="108" text-anchor="middle">exit 0</text>
+<path class="l" d="M630,72H658" marker-end="url(#a2)"/><text class="s" x="644" y="108" text-anchor="middle">clean</text>
+<path class="l" d="M450,50V24H60V48" marker-end="url(#a2)"/><text class="s" x="255" y="17" text-anchor="middle">fails with a new error → retry with the check output</text>
+<rect class="wa" x="270" y="172" width="360" height="42" rx="8"/><text class="t" x="450" y="198" text-anchor="middle">question for you</text>
+<path class="l" d="M320,94V170" marker-end="url(#a2)"/><text class="s" x="314" y="140" text-anchor="end">blocked, needs_user, failed</text>
+<path class="l" d="M450,94V170" marker-end="url(#a2)"/><text class="s" x="456" y="125" text-anchor="start">same error twice</text>
+<path class="l" d="M580,94V170" marker-end="url(#a2)"/><text class="s" x="586" y="150" text-anchor="start">weakened test</text>
+<path class="l" d="M270,193H60V96" marker-end="url(#a2)"/><text class="s" x="70" y="186" text-anchor="start">your answer → runs again</text>
+</svg>

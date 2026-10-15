@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 320" role="img" aria-label="work-graph loop: the main agent relays between the user, the work-graph server, and step subagents; the server runs checks against the repo">
+<style>
+.b{fill:#f6f8fa;stroke:#8c959f}.hl{fill:#ddf4ff;stroke:#0969da}.ok{fill:#dafbe1;stroke:#1a7f37}.wa{fill:#fff8c5;stroke:#9a6700}
+.t{font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#1f2328}.s{font:11.5px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#59636e}
+.l{stroke:#59636e;stroke-width:1.5;fill:none}.ah{fill:#59636e}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .b{fill:#161b22;stroke:#656c76}:root:not([data-theme=light]) .hl{fill:#0d2340;stroke:#4493f8}:root:not([data-theme=light]) .ok{fill:#0f2a18;stroke:#3fb950}:root:not([data-theme=light]) .wa{fill:#2e2309;stroke:#d29922}:root:not([data-theme=light]) .t{fill:#e6edf3}:root:not([data-theme=light]) .s{fill:#9198a1}:root:not([data-theme=light]) .l{stroke:#9198a1}:root:not([data-theme=light]) .ah{fill:#9198a1}}
+html[data-theme=dark] .b{fill:#161b22;stroke:#656c76}html[data-theme=dark] .hl{fill:#0d2340;stroke:#4493f8}html[data-theme=dark] .ok{fill:#0f2a18;stroke:#3fb950}html[data-theme=dark] .wa{fill:#2e2309;stroke:#d29922}html[data-theme=dark] .t{fill:#e6edf3}html[data-theme=dark] .s{fill:#9198a1}html[data-theme=dark] .l{stroke:#9198a1}html[data-theme=dark] .ah{fill:#9198a1}
+</style>
+<defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0L10,5L0,10z"/></marker></defs>
+<rect class="b" x="20" y="140" width="100" height="56" rx="8"/><text class="t" x="70" y="173" text-anchor="middle">You</text>
+<rect class="b" x="180" y="125" width="160" height="86" rx="8"/><text class="t" x="260" y="160" text-anchor="middle">Main agent</text><text class="s" x="260" y="178" text-anchor="middle">launches subagents,</text><text class="s" x="260" y="193" text-anchor="middle">relays reports unchanged</text>
+<rect class="hl" x="470" y="20" width="270" height="100" rx="8"/><text class="t" x="605" y="50" text-anchor="middle">work-graph server (MCP)</text><text class="s" x="605" y="72" text-anchor="middle">owns the graph, rules and retries</text><text class="s" x="605" y="90" text-anchor="middle">decides what runs and when it's done</text><text class="s" x="605" y="108" text-anchor="middle">state: one JSON file per workflow</text>
+<rect class="b" x="482" y="222" width="150" height="70" rx="8"/><rect class="b" x="476" y="216" width="150" height="70" rx="8"/><rect class="b" x="470" y="210" width="150" height="70" rx="8"/><text class="t" x="545" y="240" text-anchor="middle">Step subagents</text><text class="s" x="545" y="258" text-anchor="middle">one per ready step,</text><text class="s" x="545" y="273" text-anchor="middle">fresh context each</text>
+<rect class="ok" x="660" y="210" width="90" height="70" rx="8"/><text class="t" x="705" y="240" text-anchor="middle">Repo</text><text class="s" x="705" y="258" text-anchor="middle">check exits 0</text><text class="s" x="705" y="273" text-anchor="middle">= done</text>
+<path class="l" d="M120,160H178" marker-end="url(#a1)"/><text class="s" x="150" y="153" text-anchor="middle">task</text>
+<path class="l" d="M180,180H122" marker-end="url(#a1)"/><text class="s" x="150" y="196" text-anchor="middle">questions</text>
+<path class="l" d="M340,135L466,62" marker-end="url(#a1)"/><text class="s" x="372" y="92" text-anchor="middle">plan, report</text>
+<path class="l" d="M468,100L344,155" marker-end="url(#a1)"/><text class="s" x="430" y="140" text-anchor="middle">ready steps</text><text class="s" x="430" y="154" text-anchor="middle">+ prompts</text>
+<path class="l" d="M340,188L466,232" marker-end="url(#a1)"/><text class="s" x="398" y="194" text-anchor="middle">launch</text>
+<path class="l" d="M468,262L344,206" marker-end="url(#a1)"/><text class="s" x="372" y="252" text-anchor="middle">final message</text>
+<path class="l" d="M705,120V206" marker-end="url(#a1)"/><text class="s" x="698" y="160" text-anchor="end">runs checks</text><text class="s" x="698" y="174" text-anchor="end">+ guard</text>
+<path class="l" d="M632,248H656" marker-end="url(#a1)"/>
+</svg>
