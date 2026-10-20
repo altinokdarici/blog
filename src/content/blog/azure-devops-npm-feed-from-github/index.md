@@ -184,6 +184,14 @@ jobs:
 
 Give the publisher **Contributor** on the feed and nothing else.
 
+### Use Beachball to manage versions
+
+Getting the token right is only part of publishing. You also have to decide what version each package gets, write changelogs, and keep a monorepo's packages and their dependents in step. I strongly recommend [Beachball](https://github.com/microsoft/beachball) for this. It's an amazing tool, and it works the same way with an ADO feed as it does with public npm.
+
+With Beachball, each PR that changes a package includes a small *change file* that says what changed and whether it's a patch, minor, or major change. You create it with `beachball change`, and CI runs `beachball check` to fail any PR that forgot one. At release time, `beachball publish` reads the change files, bumps versions (including dependent packages in the same repo), writes the changelogs, publishes to the feed, and pushes the version commit and tags back to the repo.
+
+Nobody edits version numbers by hand, nobody argues over what "the next version" is, and every release has a changelog entry tied to the PR that caused it. Run `beachball publish` in the `release` job as the publisher, point it at the feed with `--registry`, and you keep everything above: only the protected release job can publish.
+
 ## What you need for this to work
 
 - **Feed access for the identity you're using.** In CI that's the feed-reader app. Locally it's your work account. For releases, it's the publisher. Most "it's broken" reports end up being this.
