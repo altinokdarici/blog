@@ -9,7 +9,7 @@ In an enterprise, installing straight from the public npm registry is risky. Pac
 
 On Azure, that feed is usually an Azure DevOps (ADO) Artifacts feed, even when the code lives on GitHub. Pointing a GitHub repo at an ADO feed is easy. Logging in to it is the hard part. Every place that installs packages needs a valid credential: CI, a Windows laptop, WSL, a Mac, a Codespace.
 
-The usual answer is to create a personal access token (PAT), save it as a GitHub secret, and tell people to paste one into their `~/.npmrc`. That works until the PAT expires, the person who created it leaves, or it ends up in a log. This post describes a setup with no long-lived feed secret anywhere: not in GitHub, and not in the repo.
+The usual answer is to create a personal access token (PAT), save it as a GitHub secret, and tell people to paste one into their `~/.npmrc`. Don't do this. A PAT is a *personal* access token: it belongs to one person and acts with all of that person's access. It was never meant to be a system credential. Put one in CI and your builds run as a human, break when that person's token expires or they leave, and anyone who gets hold of it can act as them until someone notices. This post describes a setup with no long-lived feed secret anywhere: not in GitHub, and not in the repo.
 
 ## The shape of it
 
